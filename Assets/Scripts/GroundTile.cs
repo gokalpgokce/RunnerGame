@@ -8,24 +8,22 @@ public class GroundTile : MonoBehaviour
     void Start()
     {
         _groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
-        SpawnObstacle();
-        SpawnCoins();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _groundSpawner.SpawnTile();
+        _groundSpawner.SpawnTile(true);
         Destroy(gameObject,2);
     }
 
-    void SpawnObstacle()
+    public void SpawnObstacle()
     {
         int obstacleSpawnIndex = Random.Range(2, 5);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
         Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
     }
 
-    void SpawnCoins()
+    public void SpawnCoins()
     {
         int coinToSpawn = 4;
         for (int i = 0; i < coinToSpawn; i++)

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public float horizontalInput;
     private float horizontalMultiplier = 2;
+    public float speedIncreasePerPoint = 0.2f;
 
     private void FixedUpdate()
     {
